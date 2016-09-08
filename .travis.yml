@@ -1,0 +1,11 @@
+before_install:
+- sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended
+  texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk texlive-lang-cyrillic
+script: latexmk -pdf book_of_the_idea_out
+deploy:
+  provider: releases
+  api_key:
+    secure: eEFZ8+3WOul/OMw3TxBEpWWU6gVTmDgvI5e2Wbd0NccmXhHMpHsM194zIc8n+ivwNOX2ihU3MhRkCLT/MD3T2dqcYp7p6k9mosRecqeGvMLFQeHnT+qAENBQmVQ9WOjU//RFLC7BqdjLsznuKNy5H/hzsAuBbsPNvuCX6w5IiLDSx6w8n9KUghycfa8JOomm25YmW/CmCQJRRjcI27b7ndRameWUCp9QKYCkLblW1jkL7vi+fgoCPhUG900iNjz6kH1arW4oVj4J3Q92IWpvuXvXdMFshlmuYCA10KXiAiVEyHWYDxYqOmr/Zad89k9EDl2UWKQ1CdGZoyXGBEtF3kd+DH5MET4urqMDBO90kPiu8TQ47VeBHRLDfPGRdIFpLfIk1twAwqDhBMqGUD8aw8EoVLiXjRk4h8WbO3rXTWJ3wJDsZLFvmNm9Pt1J0Moo/gTR9hsLPCbJOBMsrbzlQWc1kCdhZj+d/deGhNO4OqaciZm6Bb6KgKN8T4pq0qX/e1aE5NYtGKNFpmWWWFTUJ2yB6CspQXyY1+LamQJDSvH34kxUblVc6nE9kSGZelyxy7z/Si6QGJTbyIuhBMbhfy2iOd4RX5PeMyagXxrlSZUAplcg/p8PMN0CADHFV3FBZ3c6cgEbUX1Nahbj3T+k4J0kvMnx0EzReNHpdlPwqEM=
+  file: book_of_the_idea_out.pdf
+  on:
+    tags: true
