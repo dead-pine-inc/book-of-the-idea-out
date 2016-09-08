@@ -1,8 +1,15 @@
-before_install:
-- sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended
-  texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng latexmk texlive-lang-cyrillic
-script: latexmk -pdf book_of_the_idea_out
+addons:
+  apt:
+    packages:
+      - texlive-fonts-recommended
+      - texlive-latex-extra
+      - texlive-fonts-extra
+      - texlive-latex-recommended
+      - texlive-lang-cyrillic
+      - latexmk
+      - dvipng
 cache: apt
+script: latexmk -pdf book_of_the_idea_out
 deploy:
   provider: releases
   api_key:
