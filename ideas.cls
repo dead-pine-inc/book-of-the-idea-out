@@ -14,6 +14,8 @@
 \newcommand\huge{\@setfontsize\huge{29.17pt}{35pt}}
 \newcommand\Huge{\@setfontsize\Huge{33.3pt}{40pt}}
 
+\RequirePackage{anttor}
+
 %% параметры страницы
 %% http://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_dimensions
 
@@ -70,11 +72,11 @@
   \let\\\@centercr\@rightskip\@flushglue \rightskip\@rightskip
   \leftskip\z@skip}
 \newcommand\section{
-    \@startsection{section}{1}{\z@}{.9cm}{.5cm}
-    {\normalfont\normalsize\iraggedright\center\MakeUppercase}}
+    \@startsection{section}{1}{\z@}{1.9cm}{1.5cm}
+    {\fontfamily{antt}\selectfont\iraggedright\center\large\bfseries}}
 \newcommand\ssection[1]{
     \section*{#1}
-ideas    \addcontentsline{toc}{section}{#1}}
+    \addcontentsline{toc}{section}{#1}}
 \newcommand\subsection{
     \@startsection{subsection}{2}{\parindent}{.9cm}{.5cm}
     {\normalfont\normalsize\iraggedright}}
