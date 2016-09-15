@@ -3,4 +3,4 @@ default:
 
 clean:
 	latexmk -C book_of_the_idea_out
-	rm *.aux
+	$(RM) *.aux
