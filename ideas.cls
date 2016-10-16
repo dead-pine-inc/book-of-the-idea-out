@@ -14,7 +14,7 @@
 \newcommand\huge{\@setfontsize\huge{29.17pt}{35pt}}
 \newcommand\Huge{\@setfontsize\Huge{33.3pt}{40pt}}
 
-\RequirePackage{anttor}
+\RequirePackage{miama}
 
 %% параметры страницы
 %% http://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_dimensions
@@ -73,7 +73,7 @@
   \leftskip\z@skip}
 \newcommand\section{
     \@startsection{section}{1}{\z@}{1.9cm}{1.5cm}
-    {\fontfamily{antt}\selectfont\iraggedright\center\large\bfseries}}
+    {\normalfont\iraggedright\center\large\bfseries}}
 \newcommand\ssection[1]{
     \section*{#1}
     \addcontentsline{toc}{section}{#1}}
@@ -238,13 +238,13 @@
 \newlength\abovecaptionskip
 \newlength\belowcaptionskip
 \newcommand\captiondelim{~---~}
-\setlength\abovecaptionskip{10\p@}
-\setlength\belowcaptionskip{0\p@}
+\setlength\abovecaptionskip{5\p@}
+\setlength\belowcaptionskip{10\p@}
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
-  \sbox\@tempboxa{\small #1\captiondelim \nohyphens{#2}}%
+  \sbox\@tempboxa{\small\nohyphens{#2}}%
   \ifdim \wd\@tempboxa >\hsize
-    \small #1\captiondelim \nohyphens{#2}\par
+    \small\nohyphens{#2}\par
   \else
     \global \@minipagefalse
     \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
