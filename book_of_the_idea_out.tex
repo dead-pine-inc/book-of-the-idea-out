@@ -14,6 +14,17 @@
 \newcommand{\anttf}[1]{\fontfamily{antt}\selectfont#1}
 \renewcommand*\rmdefault{cmr}
 
+\usepackage{amsmath,amsthm}
+\newtheoremstyle{problemstyle}  % <name>
+        {.3cm}                 % <space above>
+        {.3cm}                 % <space below>
+        {\normalfont}         % <body font>
+        {}                    % <indent amount}
+        {\normalfont\bfseries}   % <theorem head font>
+        {\normalfont\bfseries.} % <punctuation after theorem head>
+        {.5em}              % <space after theorem head>
+        {}  % <theorem head spec (can be left empty, meaning `normal')>
+\theoremstyle{problemstyle}
 \newtheorem{problem}{Задача}
 
 \graphicspath{{images/}}

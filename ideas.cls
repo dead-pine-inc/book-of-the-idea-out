@@ -164,7 +164,7 @@
                         \advance\leftmargin 1.5em}%
                 \item\relax}
                {\endlist}
-\newenvironment{epigraph}{\begin{flushright}\begin{minipage}{0.5\textwidth}\itshape\small}{\end{minipage}\end{flushright}\vspace*{4ex}}
+\newenvironment{epigraph}{\begin{flushright}\begin{minipage}{0.6\textwidth}\itshape\small}{\end{minipage}\end{flushright}\vspace*{4ex}}
 
 \renewcommand\theenumi{\@arabic\c@enumi}
 \renewcommand\theenumii{\@arabic\c@enumii}
