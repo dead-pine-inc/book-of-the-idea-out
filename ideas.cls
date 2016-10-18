@@ -255,8 +255,13 @@
 \renewcommand\thetask{\@arabic\c@task}
 \newenvironment{task}[1][]{\refstepcounter{task}\par\medskip\noindent%
    \textbf{\taskname~\thetask. (#1)} \itshape}{\medskip}
-\endinput
 
 \@addtoreset{equation}{section}
 \renewcommand\theequation{%
   \ifnum \c@section>\z@ \thesection.\fi\@arabic\c@equation}
+
+\newcommand{\dialog}[2]{%
+    \textsc{\bfseries #1.} #2
+}
+\newcommand{\remark}[1]{{\normalfont\itshape(#1)}}
+\endinput
