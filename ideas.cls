@@ -261,10 +261,11 @@
   \ifnum \c@section>\z@ \thesection.\fi\@arabic\c@equation}
 
 \newcommand{\dialog}[2]{%
-    \textsc{\bfseries #1.} #2
+    \textsc{\bfseries #1.}\\
+    \hspace{1cm}\begin{minipage}{.9\textwidth}~\\ #2\end{minipage}\vspace*{1ex}
 }
 \newcommand{\remark}[1]{{\normalfont\itshape(#1)}}
-\newcommand{\note}[1]{{\small\texttt{#1}}}
+\newcommand{\note}[1]{\vspace*{1ex}\hspace{1cm}{\small\texttt{#1}}\vspace*{1ex}}
 
 \newenvironment{miamalist}
                {\list{}{\labelwidth=2cm
@@ -272,12 +273,13 @@
                         \itemindent=0pt
                         \let\makelabel\miamalistlabel
                         \fmmfamily
+                        \large
                }}
                {\endlist}
 \newcommand*\miamalistlabel[1]{%
   \hspace\labelsep
   \normalfont
-  \large
+  \Large
   \bfseries
   \fmmfamily
   #1}
