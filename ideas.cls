@@ -265,7 +265,7 @@
     \hspace{1cm}\begin{minipage}{.9\textwidth}~\\ #2\end{minipage}\vspace*{1ex}
 }
 \newcommand{\remark}[1]{{\normalfont\itshape(#1)}}
-\newcommand{\note}[1]{\vspace*{1ex}\hspace{1cm}{\small\texttt{#1}}\vspace*{1ex}}
+\newcommand{\note}[2][]{{\def\temp{#1}\ifx\temp\empty\else~\\\fi\noindent\small\texttt{#2}\ifx\temp\empty\else\\~\\\fi}}
 
 \newenvironment{miamalist}
                {\list{}{\labelwidth=2cm
