@@ -261,11 +261,15 @@
   \ifnum \c@section>\z@ \thesection.\fi\@arabic\c@equation}
 
 \newcommand{\dialog}[2]{%
-    \textsc{\bfseries #1}\nopagebreak\\
-    \hspace{1cm}\begin{minipage}{.9\textwidth}~\\ #2\end{minipage}\vspace{1ex}
+    \noindent\textsc{\bfseries #1}\nopagebreak\\
+    \hspace*{1cm}\begin{minipage}{.9\textwidth}~\\ #2\end{minipage}\vspace{1ex}
 }
 \newcommand{\remark}[1]{{\normalfont\itshape(#1)}}
-\newcommand{\note}[2][]{{\def\temp{#1}\ifx\temp\empty\else~\\\fi\noindent\small\texttt{#2}\ifx\temp\empty\else\\~\\\fi}}
+\newcommand{\note}[2][]{%
+  {\def\temp{#1}%
+    \ifx\temp\empty\else~\\\fi
+    {\noindent\small\fontfamily{cmvtt}\selectfont\selectfont #2}
+    \ifx\temp\empty\else\\~\\\fi}}
 
 \newenvironment{miamalist}
                {\list{}{\labelwidth=4cm
