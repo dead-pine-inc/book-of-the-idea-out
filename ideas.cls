@@ -264,4 +264,22 @@
     \textsc{\bfseries #1.} #2
 }
 \newcommand{\remark}[1]{{\normalfont\itshape(#1)}}
+\newcommand{\note}[1]{{\small\texttt{#1}}}
+
+\newenvironment{miamalist}
+               {\list{}{\labelwidth=2cm
+                        \leftmargin=3cm
+                        \itemindent=0pt
+                        \let\makelabel\miamalistlabel
+                        \fmmfamily
+               }}
+               {\endlist}
+\newcommand*\miamalistlabel[1]{%
+  \hspace\labelsep
+  \normalfont
+  \large
+  \bfseries
+  \fmmfamily
+  #1}
+
 \endinput
