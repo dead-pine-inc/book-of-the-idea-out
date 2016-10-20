@@ -1,15 +1,10 @@
-addons:
-  apt:
-    packages:
-      - texlive-fonts-recommended
-      - texlive-latex-extra
-      - texlive-fonts-extra
-      - texlive-latex-recommended
-      - texlive-lang-cyrillic
-      - latexmk
-      - dvipng
-cache: apt
-script: latexmk -pdf book_of_the_idea_out
+sudo: required
+services:
+  - docker
+before_install:
+  - docker pull hiono/texlive
+script:
+  - docker run -v "$PWD:/data" hiono/texlive /bin/sh -c "cd data && latexmk -pdf book_of_the_idea_out"
 deploy:
   provider: releases
   api_key:
