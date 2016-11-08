@@ -1,7 +1,11 @@
+dist: trusty
 sudo: required
 cache: apt
-script:
-  - sudo add-apt-repository -y ppa:jonathonf/texlive-2016 && sudo apt-get update && sudo apt-get install texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended texlive-lang-cyrillic latexmk dvipng
+before_install:
+  - sudo add-apt-repository -y ppa:jonathonf/texlive-2016
+  - sudo apt-get update
+  - sudo apt-get install texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended texlive-lang-cyrillic latexmk dvipng
+script:  
   - latexmk -pdf book_of_the_idea_out
 deploy:
   provider: releases
