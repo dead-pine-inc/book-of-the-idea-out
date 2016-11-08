@@ -1,12 +1,12 @@
+dist: trusty
 sudo: required
-services:
-  - docker
+cache: apt
 before_install:
-  - docker pull hiono/texlive
-script:
-  - docker run -v "$PWD:/data" hiono/texlive /bin/sh -c "cd data && latexmk -pdf book_of_the_idea_out"
-  - docker stop $(docker ps -a -q)
-  - docker rm $(docker ps -a -q)
+  - sudo add-apt-repository -y ppa:jonathonf/texlive-2016
+  - sudo apt-get update
+  - sudo apt-get install texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended texlive-lang-cyrillic latexmk dvipng
+script:  
+  - latexmk -pdf book_of_the_idea_out
 deploy:
   provider: releases
   api_key:
