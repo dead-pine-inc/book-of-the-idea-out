@@ -1,8 +1,148 @@
-\section{Математика с Вовочкой} % серия мини-статей, которую должная открыть извлечение корней из мтр 
+\section{Заметки мёртвых математиков} % серия мини-статей, которую должная открыть извлечение корней из мтр 
 \begin{epigraph}
     Победа сил разума над силами добра!
     \flushright{\normalfont Ильин Александр Александрович, 29 апреля 2016}
 \end{epigraph}
 \begin{center}
-      \includegraphics[width=\textwidth]{int_dp.pdf}
+      \includegraphics[width=0.5\textwidth]{int_dp.pdf}
 \end{center}
+
+Рассмотрим простую задачу из 8 класса, но для матриц:
+\begin{equation}
+    X^2 = A.
+\end{equation}
+Сейчас мы будем рассматривать только такие матрицы \( A \), у которых все собственные различны. Прелесть таких матриц в том, что их нормированные собственные векторы определены единственным образом.
+
+Выясним связь, между собственными векторами и значениями матриц X и A:
+\begin{equation}
+    X\vec{v}_i = \mu_i\vec{v}_i,\quad
+    A\vec{v}_i = \mu_i X \vec{v}_i = \mu_i^2 \vec{v}_i = \lambda_i \vec{v}_i.
+\end{equation}
+
+Отсюда, собственные векторы матриц \( A \) и \( X \) совпадают, а собственные значения связаны соотношением
+\begin{equation}
+    \lambda_i = \mu_i^2.
+\end{equation}
+
+Теперь становится ясно, как построить матрицу \( X \):
+\begin{enumerate}
+    \item Привести матрицу A к диагональному виду.
+    \item Извлечь корень из диагональных элементов.
+    \item Сделать обратное преобразование.
+\end{enumerate}
+
+Или одной формулой
+\begin{equation}
+    X = T(\diag(\lambda_1,\ldots,\lambda_n))^\frac{1}{2}T^{-1}=T(T^{-1}AT)^\frac{1}{2}T^{-1},
+\end{equation}
+где матрица \( T \) составлена из собственных векторов матрицы \( A \).
+
+Квадратный корень из числа имеет два значения, отличающиеся знаком, поэтому \( X \) может принимать \( 2^n \) различных значений (\( 2^{n-1} \), если одно из собственных значений нулевое).
+
+Рассмотрим конкретный пример:
+\begin{equation}
+    A = \begin{pmatrix}
+    1 & 8\\
+    2 & 7
+    \end{pmatrix}.
+\end{equation}
+Её характеристическое уравнение
+\begin{equation}
+    \lambda^2 - 8\lambda - 9 = 0,
+\end{equation}
+откуда собственные значения матрицы
+\begin{equation}
+    \lambda_1 = -1,\quad \lambda_1 = 9,
+\end{equation}
+а собственные векторы
+\begin{equation}
+    \vec{v}_1 = \begin{pmatrix}
+    4 \\
+    -1
+    \end{pmatrix},\quad
+    \vec{v}_2 = \begin{pmatrix}
+    1 \\
+    1
+    \end{pmatrix}
+\end{equation}
+Проверим себя:
+\begin{gather}
+    T^{-1}AT =
+    \begin{pmatrix}
+        \frac{1}{5} & -\frac{1}{5} \\
+        \frac{1}{5} & \frac{4}{5}
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 8\\
+        2 & 7
+    \end{pmatrix}
+    \begin{pmatrix}
+        4 & 1 \\
+        -1 & 1
+    \end{pmatrix} =\nonumber\\
+    = \begin{pmatrix}
+        \frac{1}{5} & -\frac{1}{5} \\
+        \frac{1}{5} & \frac{4}{5}
+    \end{pmatrix}
+    \begin{pmatrix}
+        -4 & 9\\
+        1 & 9
+    \end{pmatrix} =
+    \begin{pmatrix}
+        -1 & 0\\
+        0 & 9
+    \end{pmatrix}
+\end{gather}
+Матрица диагональная, собственные значения на своих местах, поэтоиу мы продолжаем. С точностью до знака, возможны 2 различных выбора матрицы \( X \):
+\begin{equation}
+    X_1 = T\begin{pmatrix}
+        i & 0\\
+        0 & 3
+    \end{pmatrix}T^{-1} \text{ и }
+    X_2 = T\begin{pmatrix}
+        i & 0\\
+        0 & -3
+    \end{pmatrix}T^{-1}.
+\end{equation}
+В итоге, имеем
+\begin{equation}
+    X_1 = \begin{pmatrix}
+        4 & 1 \\
+        -1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        i & 0\\
+        0 & 3
+    \end{pmatrix}
+    \begin{pmatrix}
+        \frac{1}{5} & -\frac{1}{5} \\
+        \frac{1}{5} & \frac{4}{5}
+    \end{pmatrix}= 
+    \frac{1}{5}
+    \begin{pmatrix}
+        3+4i & 12-4i \\
+        3-i & 12+i
+    \end{pmatrix},
+\end{equation}
+\begin{equation}
+    X_2 = \begin{pmatrix}
+        4 & 1 \\
+        -1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        i & 0\\
+        0 & -3
+    \end{pmatrix}
+    \begin{pmatrix}
+        \frac{1}{5} & -\frac{1}{5} \\
+        \frac{1}{5} & \frac{4}{5}
+    \end{pmatrix} = 
+    \frac{1}{5}
+    \begin{pmatrix}
+        -3+4i & -12-4i \\
+        -3-i & -12+i
+    \end{pmatrix}.
+\end{equation}
+Всего в данном случае имеется 4 корня: \( \pm X_1, \pm X_2 \).
+
+В случае, когда хотя бы 2 собственных значения совпадают возможны два варианта. Если матрица диагонализуется (например, если это единичная матрица), то решений бесконечно много из-за произвольности выбора базиса собственных векторов. Случай, при котором матрица не приводится к диагональному виду мы предлагаем рассмотреть читателю \href{https://www.sharelatex.com/project/58285dc0dcf62380011eb003}{самостоятельно}.
