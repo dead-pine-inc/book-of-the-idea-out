@@ -78,11 +78,11 @@
     \section*{#1}
     \addcontentsline{toc}{section}{#1}}
 \newcommand\subsection{
-    \@startsection{subsection}{2}{\parindent}{.9cm}{.5cm}
-    {\normalfont\normalsize\iraggedright}}
+    \@startsection{subsection}{2}{\z@}{1.2cm}{0.8cm}
+    {\normalfont\iraggedright\center\large\bfseries}}
 \newcommand\subsubsection{
-    \@startsection{subsubsection}{3}{\parindent}{.9cm}{.5cm}
-    {\normalfont\normalsize\iraggedright}}
+    \@startsection{subsubsection}{3}{\z@}{0.9cm}{0.5cm}
+    {\normalfont\iraggedright\center\large\bfseries}}
 % \newcommand\paragraph{
 %     \@startsection{paragraph}{4}{\parindent}{.5cm}{.5cm}
 %     {\normalfont\normalsize\raggedright}}
@@ -117,11 +117,11 @@
       %#1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
     %\endgroup
   %\fi}
-\newcommand*\l@section{\@dottedtocline{1}{0em}{1em}}
-\newcommand*\l@subsection{\@dottedtocline{2}{1em}{2em}}
-\newcommand*\l@subsubsection{\@dottedtocline{3}{2em}{3em}}
-\newcommand*\l@paragraph{\@dottedtocline{4}{3em}{4em}}
-\newcommand*\l@subparagraph{\@dottedtocline{5}{4em}{5em}}
+\newcommand*\l@section{\@dottedtocline{1}{0em}{1.5em}}
+\newcommand*\l@subsection{\@dottedtocline{2}{1em}{2.5em}}
+\newcommand*\l@subsubsection{\@dottedtocline{3}{2em}{3.5em}}
+\newcommand*\l@paragraph{\@dottedtocline{4}{3em}{4.5em}}
+\newcommand*\l@subparagraph{\@dottedtocline{5}{4em}{5.5em}}
 
 \newdimen\bibindent%
 \setlength\bibindent{1.5em}
@@ -164,7 +164,7 @@
                         \advance\leftmargin 1.5em}%
                 \item\relax}
                {\endlist}
-\newenvironment{epigraph}{\begin{flushright}\begin{minipage}{0.6\textwidth}\itshape\small}{\end{minipage}\end{flushright}\vspace*{4ex}}
+\newenvironment{epigraph}{\vspace*{1em}\begin{flushright}\begin{minipage}{0.6\textwidth}\itshape\small}{\end{minipage}\end{flushright}\vspace*{4ex}}
 
 \renewcommand\theenumi{\@arabic\c@enumi}
 \renewcommand\theenumii{\@arabic\c@enumii}
@@ -286,5 +286,14 @@
   \bfseries
   \fmmfamily
   #1}
+
+\newcommand\subtitle[1]{%
+\vspace*{-1cm}
+\begin{center}
+  \itshape #1
+\end{center}
+\vspace*{0.5cm}
+}
+\newcommand\asterisks{\vspace*{.5em}\begin{center}* * *\end{center}\vspace*{.5em}}
 
 \endinput
