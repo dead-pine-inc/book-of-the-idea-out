@@ -1,3 +1,4 @@
+dist: trusty
 sudo: required
 cache: apt
 before_install:
